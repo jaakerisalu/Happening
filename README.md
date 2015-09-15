@@ -19,10 +19,6 @@
 
  `cd Happening`
 
-**Install WebApp dependencies**
-
- `npm install`
-
 **Create local settings**
 
 Look below if you'd like to use PostgreSQL locally
@@ -31,17 +27,19 @@ Create settings/local.py from settings/local.py.example
 
 **Syncdb & migrate**
 
- `python manage.py syncdb`
+ `python manage.py makemigrations accounts`
 
  `python manage.py migrate`
-
+  
+ `python manage.py syncdb`
+ 
+Create a superuser to log in to admin
+ 
 **Run development servers**
 
 **Note:** Virtualenv must be activated for the following commands to work
 
 Run django server: `python manage.py runserver`
-
-Run development asset server: `npm run hot`
 
 **Note:** Server will run at 127.0.0.1:8000 (localhost wont work because of CORS)
 

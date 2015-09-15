@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-class User(AbstractUser):
-    pass
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.db import models
 from django.utils import timezone
