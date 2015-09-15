@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>{{ happenings }}</div>
+
+    <div>
+        <table>
+            {% for happening in happenings %}
+                <tr>
+                    <td>
+                        {{ happening.name }}
+                    </td>
+                    <td>
+                        {{ happening.date_added }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock content %}
