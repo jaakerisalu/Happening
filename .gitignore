@@ -1,0 +1,16 @@
+# Ignore everything in .idea
+.idea
+
+*.pyo
+*.pyc
+.sass-cache/
+npm-debug.log
+
+node_modules/
+venv/
+
+Happening/settings/local.py
+Happening/db.sqlite3
+Happening/assets/
+Happening/media/
+Happening/static/bower_components/
