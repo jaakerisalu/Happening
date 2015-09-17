@@ -17,6 +17,8 @@
     <!--[if lt IE 9]>
         <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
 </head>
 
 <body class="{% block body_classes %}{% endblock %}">
@@ -33,7 +35,7 @@
         </div>
     </header>
 
-    <div class="container">
+    <div class="container-fluid">
         {% block content %}{% endblock content %}
     </div>
 

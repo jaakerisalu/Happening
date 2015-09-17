@@ -8,3 +8,4 @@ class Happening(models.Model):
 
     lat = models.DecimalField('Latitude', max_digits=13, null=True, blank=True, decimal_places=10)
     lng = models.DecimalField('Longtitude', max_digits=13, null=True, blank=True, decimal_places=10)
+
