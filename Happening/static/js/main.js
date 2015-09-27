@@ -48,7 +48,15 @@ function initialize(lat, lon) {
 
     var testList = [testLoc1, testLoc2, testLoc3];
 
-    var marker;
+    var marker, myLoc;
+
+    myLoc = new google.maps.Marker({
+        position: new google.maps.LatLng(lat, lon),
+        map: map,
+        title: "My location",
+        animation: google.maps.Animation.DROP
+    });
+
     for (var i = 0; i < testList.length; i++) {
         var myLatLng = {lat: testList[i].lat, lng: testList[i].lng};
         marker = new google.maps.Marker({
