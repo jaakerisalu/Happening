@@ -54,7 +54,9 @@ function initialize(lat, lon) {
         position: new google.maps.LatLng(lat, lon),
         map: map,
         title: "My location",
-        animation: google.maps.Animation.DROP
+        animation: google.maps.Animation.DROP,
+        draggable: true,
+        icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
     });
 
     for (var i = 0; i < testList.length; i++) {
@@ -62,7 +64,8 @@ function initialize(lat, lon) {
         marker = new google.maps.Marker({
             position: myLatLng,
             map: map,
-            title: 'Hello World!'
+            title: 'Hello World!',
+            animation: google.maps.Animation.DROP
         });
     }
 }
