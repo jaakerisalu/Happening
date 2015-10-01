@@ -41,13 +41,23 @@ function initialize(lat, lon) {
 
     var mymarker, myLoc;
 
+    var image = { // 150 x 248, näpu ots 145, 2
+        url: 'http://i.imgur.com/lgy3SYy.png',
+        // This marker is 20 pixels wide by 32 pixels high.
+        size: new google.maps.Size(150, 248),
+        // The origin for this image is (0, 0).
+        origin: new google.maps.Point(0, 0),
+        // The anchor for this image is the base of the flagpole at (0, 32).
+        anchor: new google.maps.Point(145, -20)
+    };
+
     myLoc = new google.maps.Marker({
         position: new google.maps.LatLng(lat, lon),
         map: mymap,
         title: "My location",
-        animation: google.maps.Animation.DROP,
+        animation: google.maps.Animation.BOUNCE,
         draggable: true,
-        icon: 'http://static1.squarespace.com/static/55161d9ae4b04d5c3199b773/t/557313f2e4b0573e63459c2b/1433605107485/pickleperson.jpg'
+        icon: image
     });
 
     for (var i = 0; i < testList.length; i++) {
