@@ -29,42 +29,32 @@ function initialize(lat, lon) {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-    var map = new google.maps.Map(mapCanvas, mapOptions);
+    var mymap = new google.maps.Map(mapCanvas, mapOptions);
 
-    //TEST
-    var testLoc1 = {
-        lat: 59.4364280000,
-        lng: 24.7553350000
-    };
+    var testList = [];
+    happenings.forEach(function(happening) {
+        testList.push({
+            lat: Number(happening.lat),
+            lng: Number(happening.lng)
+        })
+    });
 
-    var testLoc2 = {
-        lat: 59.4322490000,
-        lng: 24.7619500000
-    };
-
-    var testLoc3 = {
-        lat: 59.4348892000,
-        lng: 24.7472201000
-    };
-
-    var testList = [testLoc1, testLoc2, testLoc3];
-
-    var marker, myLoc;
+    var mymarker, myLoc;
 
     myLoc = new google.maps.Marker({
         position: new google.maps.LatLng(lat, lon),
-        map: map,
+        map: mymap,
         title: "My location",
         animation: google.maps.Animation.DROP,
         draggable: true,
-        icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+        icon: 'http://static1.squarespace.com/static/55161d9ae4b04d5c3199b773/t/557313f2e4b0573e63459c2b/1433605107485/pickleperson.jpg'
     });
 
     for (var i = 0; i < testList.length; i++) {
         var myLatLng = {lat: testList[i].lat, lng: testList[i].lng};
-        marker = new google.maps.Marker({
+        mymarker = new google.maps.Marker({
             position: myLatLng,
-            map: map,
+            map: mymap,
             title: 'Hello World!',
             animation: google.maps.Animation.DROP
         });

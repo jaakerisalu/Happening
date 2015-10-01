@@ -15,7 +15,7 @@ class Happening(models.Model):
         return {
             'name': escape(self.name, quote=True),
             'date_added': self.date_added.strftime("%b %d %Y %H:%M:%S"),
-            'lat': self.lat,
-            'lng': self.lng,
+            'lat': str(self.lat),
+            'lng': str(self.lng),
         }
 
