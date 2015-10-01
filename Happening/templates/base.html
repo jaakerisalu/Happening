@@ -24,7 +24,7 @@
 <body class="{% block body_classes %}{% endblock %}">
     <header class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">Happening</a>
+            <a class="navbar-brand" href="{% url 'happenings' %}">Happening</a>
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_authenticated %}
                     <li><a href="{% url 'logout' %}">Log out</a></li>

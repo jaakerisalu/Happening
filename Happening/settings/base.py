@@ -148,7 +148,7 @@ ROOT_URLCONF = 'Happening.urls'
 WSGI_APPLICATION = 'Happening.wsgi.application'
 
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'happenings'
 LOGIN_URL = 'login'
 
 

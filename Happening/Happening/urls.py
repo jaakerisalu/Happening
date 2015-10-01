@@ -8,8 +8,7 @@ admin.autodiscover()
 
 urlpatterns = [
     url(r'', include('accounts.urls')),
-    url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
-    url(r'^happenings/$', HappeningView.as_view(), name='happenings'),
+    url(r'^$', HappeningView.as_view(), name='happenings'),
 
     url(r'^tagauks/', include(admin.site.urls)),
 ]
