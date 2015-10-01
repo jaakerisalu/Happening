@@ -8,6 +8,7 @@
 
 {% block scripts %}
     <script>
+        var happenings = {{ happenings|safe }};
         initHappening();
     </script>
 {% endblock %}

@@ -2,7 +2,7 @@
 
 
 function initHappening() {
-    getLocation()
+    getLocation();
 }
 
 function getLocation() {
@@ -21,14 +21,15 @@ function showPosition(position) {
 
 function initialize(lat, lon) {
     getLocation();
+    console.log(happenings);
     var mapCanvas = document.getElementById('map');
     var mapOptions = {
         center: new google.maps.LatLng(lat, lon),
         zoom: 12,
         mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
+    };
 
-    var map = new google.maps.Map(mapCanvas, mapOptions)
+    var map = new google.maps.Map(mapCanvas, mapOptions);
 
     //TEST
     var testLoc1 = {
