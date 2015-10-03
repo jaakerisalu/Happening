@@ -3,6 +3,7 @@
   bottom: 10px;
   left: 2.5%;
   width: 95%;
+  display: none;
 }
 
 #map {
@@ -13,6 +14,11 @@
   padding: 0;
 }
 
+@media screen and (max-width: 600px) {
+  #add-happening {
+    display: block;
+  }
+}
 body, html {
   margin: 0;
   height: 100%;

@@ -10,5 +10,7 @@ urlpatterns = [
     url(r'', include('accounts.urls')),
     url(r'^$', HappeningView.as_view(), name='happenings'),
 
+    url(r'^create/$', 'Happening.views.create'),
+
     url(r'^tagauks/', include(admin.site.urls)),
 ]

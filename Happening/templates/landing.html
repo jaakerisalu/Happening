@@ -5,7 +5,35 @@
 {% block content %}
 {#    <input id="pac-input" class="controls" type="text" placeholder="Search Box">#}
     <div id="map"></div>
-    <button type="button" class="btn btn-success" id="add-happening">Add happening</button>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add Happening</h4>
+      </div>
+
+        <form action="/create/" method="post"/>{% csrf_token %}
+          <div class="modal-body">
+              <input type="text" class="form-control" placeholder="Title" name="name">
+              <input type="hidden" class="form-control" name="lat" id="lat-field">
+              <input type="hidden" class="form-control" name="lng" id="lng-field">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Add</button>
+          </div>
+        </form>
+
+    </div>
+  </div>
+</div>
+
+
+    <button type="button" class="btn btn-success" id="add-happening" data-toggle="modal" data-target="#myModal">Add happening</button>
 {% endblock content %}
 
 {% block scripts %}

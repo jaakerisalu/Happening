@@ -1,5 +1,5 @@
 
-
+var currentLat, currentLon;
 
 function initHappening() {
     getLocation();
@@ -16,12 +16,16 @@ function getLocation() {
 function showPosition(position) {
     var lat = position.coords.latitude;
     var lon = position.coords.longitude;
+
+    //Initialize draggable marker coordinates
+    currentLat = lat;
+    currentLon = lon;
+
     initialize(lat, lon);
 }
 
 function initialize(lat, lon) {
     getLocation();
-    console.log(happenings);
     var mapCanvas = document.getElementById('map');
     var mapOptions = {
         center: new google.maps.LatLng(lat, lon),
@@ -69,5 +73,19 @@ function initialize(lat, lon) {
             animation: google.maps.Animation.DROP
         });
     }
+
+    google.maps.event.addListener(myLoc, 'dragend', function() {
+        var currentPos = myLoc.getPosition();
+        currentLat = currentPos.H;
+        currentLon = currentPos.L;
+  });
+
 }
+
+
+$("#myModal").on("shown.bs.modal", function() {
+    $("#lat-field").val(currentLat);
+    $("#lng-field").val(currentLon);
+});
+
 
