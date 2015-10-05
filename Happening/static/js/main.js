@@ -7,7 +7,7 @@ function initHappening() {
 
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
     } else {
        console.log("Geolocation is not supported by this browser.");
     }
@@ -22,6 +22,23 @@ function showPosition(position) {
     currentLon = lon;
 
     initialize(lat, lon);
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            console.log("User denied the request for Geolocation.")
+            break;
+        case error.POSITION_UNAVAILABLE:
+            console.log("Location information is unavailable.")
+            break;
+        case error.TIMEOUT:
+            console.log("The request to get user location timed out.")
+            break;
+        case error.UNKNOWN_ERROR:
+            xconsole.log("An unknown error occurred.")
+            break;
+    }
 }
 
 function initialize(lat, lon) {
