@@ -56,7 +56,8 @@ function initialize(lat, lon) {
     happenings.forEach(function(happening) {
         testList.push({
             lat: Number(happening.lat),
-            lng: Number(happening.lng)
+            lng: Number(happening.lng),
+            name: String(happening.name)
         })
     });
 
@@ -86,7 +87,7 @@ function initialize(lat, lon) {
         mymarker = new google.maps.Marker({
             position: myLatLng,
             map: mymap,
-            title: 'Hello World!',
+            title: testList[i].name,
             animation: google.maps.Animation.DROP
         });
     }
