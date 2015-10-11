@@ -18,3 +18,9 @@ class HappeningModelTest(TestCase):
     def test_happening_representation(self):
         happening = Happening(name="New Happening")
         self.assertEqual(str(happening), happening.name)
+
+class HappeningsInitializaionTest(TestCase):
+    def test_happening_initialization(self):
+        resp = self.client.get('/')
+        self.assertEqual(resp.status_code, 200)
+        self.assertTrue('happenings' in resp.context)
