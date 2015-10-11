@@ -1,4 +1,5 @@
 from Happening.views import HappeningView
+from Happening.models import Happening
 from django.core.urlresolvers import reverse, resolve
 from django.test import TestCase
 
@@ -11,3 +12,9 @@ class LandingTest(TestCase):
         self.assertEqual(reverse("happenings"), "/")
         resolve_result = resolve("/")
         self.assertEqual(resolve_result.func.__name__, HappeningView.as_view().__name__)
+
+
+class HappeningModelTest(TestCase):
+    def test_happening_representation(self):
+        happening = Happening(name="New Happening")
+        self.assertEqual(str(happening), happening.name)

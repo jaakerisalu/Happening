@@ -19,3 +19,5 @@ class Happening(models.Model):
             'lng': str(self.lng),
         }
 
+    def __str__(self):
+        return self.name
