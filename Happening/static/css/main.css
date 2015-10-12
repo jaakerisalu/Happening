@@ -14,23 +14,33 @@
   padding: 0;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 600px) {
   #add-happening {
     display: block;
   }
 }
-body, html {
-  margin: 0;
-  height: 100%;
+.login .navbar {
+  display: none;
 }
+.login .login-form {
+  margin-top: 20px;
+}
+
 .navbar {
   margin: 0;
 }
+
 .navbar-default {
   background-color: transparent;
   border-color: transparent;
 }
+
 .navbar-default .navbar-nav > li > a {
   font-weight: bold;
   text-align: right;
+}
+
+body, html {
+  margin: 0;
+  height: 100%;
 }

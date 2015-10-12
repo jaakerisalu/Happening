@@ -1,0 +1,21 @@
+.login {
+  .navbar {
+    display: none;
+  }
+
+  .login-form {
+    margin-top: 20px;
+  }
+}
+
+.navbar {
+  margin: 0;
+}
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent;
+}
+.navbar-default .navbar-nav > li > a {
+  font-weight: bold;
+  text-align: right;
+}
