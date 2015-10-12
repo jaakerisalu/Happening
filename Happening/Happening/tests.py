@@ -25,3 +25,11 @@ class HappeningsInitializaionTest(TestCase):
         resp = self.client.get('/')
         self.assertEqual(resp.status_code, 200)
         self.assertTrue('happenings' in resp.context)
+        
+        
+class ObjectTest (TestCase):
+    def test_object(self):
+        obj = Happening.objects.create(name="nokia")
+        obj.save()
+        test = Happening.objects.get(name="nokia").remove()
+        self.assertEqual(Happening.objects.filter(name="nokia").count(),0)
