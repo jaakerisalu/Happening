@@ -94,8 +94,8 @@ function initialize(lat, lon) {
 
     google.maps.event.addListener(myLoc, 'dragend', function() {
         var currentPos = myLoc.getPosition();
-        currentLat = currentPos.H;
-        currentLon = currentPos.L;
+        currentLat = String(currentPos.lat()).substr(0, 12);
+        currentLon = String(currentPos.lng()).substr(0, 12);
   });
 
 }
