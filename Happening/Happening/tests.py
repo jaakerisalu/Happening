@@ -31,5 +31,5 @@ class ObjectTest (TestCase):
     def test_object(self):
         obj = Happening.objects.create(name="nokia")
         obj.save()
-        test = Happening.objects.get(name="nokia").remove()
+        test = Happening.objects.get(name="nokia").delete()
         self.assertEqual(Happening.objects.filter(name="nokia").count(),0)
