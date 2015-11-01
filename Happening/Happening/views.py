@@ -21,9 +21,11 @@ class HappeningView(TemplateView):
 
 def create(request):
     if request.POST:
-        form = HappeningForm(request.POST)
+        form = HappeningForm(request.POST, request.FILES)
         if form.is_valid():
+            picture = Happening(picture = request.FILES['picture'])
             form.save()
+
 
         return HttpResponseRedirect('/')
 

@@ -6,7 +6,7 @@ from django.utils import timezone
 class Happening(models.Model):
     name = models.CharField('Name', max_length=255)
     date_added = models.DateTimeField('Date added', default=timezone.now)
-
+    picture = models.ImageField('Picture', upload_to="happenings/", null=True, blank=True)
     lat = models.CharField('Latitude', max_length=20, null=True, blank=True)
     lng = models.CharField('Longtitude', max_length=20, null=True, blank=True)
 
@@ -21,3 +21,4 @@ class Happening(models.Model):
 
     def __str__(self):
         return self.name
+

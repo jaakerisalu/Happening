@@ -16,11 +16,13 @@
         <h4 class="modal-title" id="myModalLabel">Add Happening</h4>
       </div>
 
-        <form action="/create/" method="post"/>{% csrf_token %}
+        <form action="/create/" method="post" enctype="multipart/form-data"/>{% csrf_token %}
           <div class="modal-body">
               <input type="text" class="form-control" placeholder="Title" name="name">
               <input type="hidden" class="form-control" name="lat" id="lat-field">
               <input type="hidden" class="form-control" name="lng" id="lng-field">
+              <p>Add a picture: <input name="picture" type="file" id="take_picture" accept="image/*;capture=camera"></p>
+              <img src="about:blank" alt="" id="show_picture" style="width: 100%; min-height: 1px; display: none;">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

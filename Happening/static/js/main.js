@@ -106,4 +106,21 @@ $("#myModal").on("shown.bs.modal", function() {
     $("#lng-field").val(currentLon);
 });
 
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#show_picture').attr('src', e.target.result);
+            $('#show_picture').css("display","block");
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#take_picture").change(function(){
+    readURL(this);
+});
+
 

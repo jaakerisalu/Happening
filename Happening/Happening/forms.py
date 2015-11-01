@@ -6,4 +6,4 @@ class HappeningForm(forms.ModelForm):
 
     class Meta:
         model = Happening
-        fields = ('name', 'lat', 'lng')
+        fields = ('name', 'lat', 'lng', 'picture')
