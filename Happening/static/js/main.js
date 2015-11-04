@@ -57,7 +57,8 @@ function initialize(lat, lon) {
         testList.push({
             lat: Number(happening.lat),
             lng: Number(happening.lng),
-            name: String(happening.name)
+            name: String(happening.name),
+            picture: String(happening.picture)
         })
     });
 
@@ -82,14 +83,30 @@ function initialize(lat, lon) {
         icon: image
     });
 
+    var infoWindow = new google.maps.InfoWindow();
+    var iconBase = '/media/icons/';
+
     for (var i = 0; i < testList.length; i++) {
+        console.log(testList[i].picture);
         var myLatLng = {lat: testList[i].lat, lng: testList[i].lng};
         mymarker = new google.maps.Marker({
             position: myLatLng,
             map: mymap,
-            title: testList[i].name,
-            animation: google.maps.Animation.DROP
+            animation: google.maps.Animation.DROP,
+            //icon: + '/media/icons/Pin.svg'
         });
+
+        google.maps.event.addListener(mymarker, 'click', (function(mymarker, i) {
+            return function() {
+                if(testList[i].picture != '/media/') {
+                    var content = '<p>' + testList[i].name + '</p><img src="' + testList[i].picture + '" style="width: 300px;">';
+                } else {
+                    var content = '<p>' + testList[i].name + '</p>';
+                }
+                infoWindow.setContent(content);
+                infoWindow.open(mymap, mymarker);
+            }
+        })(mymarker, i));
     }
 
     google.maps.event.addListener(myLoc, 'dragend', function() {
