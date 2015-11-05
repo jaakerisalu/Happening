@@ -18,10 +18,19 @@
 
         <form action="/create/" method="post" enctype="multipart/form-data"/>{% csrf_token %}
           <div class="modal-body">
+              <div class="form-group">
               <input type="text" class="form-control" placeholder="Title" name="name">
               <input type="hidden" class="form-control" name="lat" id="lat-field">
-              <input type="hidden" class="form-control" name="lng" id="lng-field">
-              <p>Add a picture: <input name="picture" type="file" id="take_picture" accept="image/*;capture=camera"></p>
+              <input type="hidden" class="form-control" name="lng" id="lng-field"></div>
+              <div class="form-group">
+              <!--p>Add a picture: <input name="picture" type="file" id="take_picture" accept="image/*;capture=camera"></p-->
+              <div class="input-group">
+              <span class="input-group-btn">
+                <span class="btn btn-primary" onclick="$(this).parent().find('input[type=file]').click();">Add a picture...</span>
+                <input name="picture" id="take_picture" onchange="$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\|/]/).pop());" style="display: none;" type="file" accept="image/*;capture=camera">
+              </span>
+              <span class="form-control"></span>
+              </div></div>
               <img src="about:blank" alt="" id="show_picture" style="width: 100%; min-height: 1px; display: none;">
           </div>
           <div class="modal-footer">
