@@ -115,6 +115,15 @@ function initialize(lat, lon) {
         currentLon = String(currentPos.lng()).substr(0, 12);
   });
 
+    $("#happening_name").keyup(function() {
+        console.log("up");
+    if($(this).val() == "") {
+         $('#add_happening_btn').attr('disabled','disabled');
+    } else {
+         $('#add_happening_btn').removeAttr('disabled');
+    }
+});
+
 }
 
 

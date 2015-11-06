@@ -19,7 +19,7 @@
         <form action="/create/" method="post" enctype="multipart/form-data"/>{% csrf_token %}
           <div class="modal-body">
               <div class="form-group">
-              <input type="text" class="form-control" placeholder="Title" name="name">
+              <input type="text" class="form-control" placeholder="Title" name="name" id="happening_name">
               <input type="hidden" class="form-control" name="lat" id="lat-field">
               <input type="hidden" class="form-control" name="lng" id="lng-field"></div>
               <div class="form-group">
@@ -35,7 +35,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="submit" disabled="disabled" id="add_happening_btn" class="btn btn-primary">Add</button>
           </div>
         </form>
 
