@@ -1,11 +1,10 @@
 
 import json
 from django.http import HttpResponseRedirect
-from django.shortcuts import render_to_response
 from django.views.generic import TemplateView
 from Happening.models import Happening
 from Happening.forms import HappeningForm
-from django.core.context_processors import csrf
+
 
 
 class HappeningView(TemplateView):
@@ -15,6 +14,9 @@ class HappeningView(TemplateView):
         context = super(HappeningView, self).get_context_data(**kwargs)
 
         happenings = Happening.objects.all()
+
+        form = HappeningForm()
+        context['form'] = form
         context['happenings'] = json.dumps([h.serialize() for h in happenings])
         return context
 
@@ -24,7 +26,6 @@ def create(request):
         form = HappeningForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-
 
         return HttpResponseRedirect('/')
 
