@@ -1,3 +1,5 @@
+import datetime
+
 from Happening.helpers import escape
 from django.conf import settings
 from django.db import models
@@ -15,9 +17,11 @@ class Happening(models.Model):
     lat = models.CharField('Latitude', max_length=20, null=True, blank=True)
     lng = models.CharField('Longitude', max_length=20, null=True, blank=True)
 
+    duration = models.IntegerField("duration", default=15)
+
+    end_date = models.DateTimeField('End date', default=timezone.now() + datetime.timedelta(minutes=15))
+
     category = models.IntegerField(choices=CATEGORIES, default=CATEGORIES.category1)
-
-
 
     def serialize(self):
         format = ""

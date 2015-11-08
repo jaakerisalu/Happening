@@ -25,9 +25,17 @@
               <input type="text" class="form-control" placeholder="Title" name="name" id="happening_name">
               <input type="hidden" class="form-control" name="lat" id="lat-field">
               <input type="hidden" class="form-control" name="lng" id="lng-field"></div>
+
               <div class="form-group">
                   {{ form.category }}
               </div>
+
+              <div class="form-group">
+                  <input id="slider" class="mdl-slider mdl-js-slider" type="range"
+                    min="1" max="60" value="15" tabindex="0" name="duration">
+                  <span id="duration-value" class="small"></span>
+              </div>
+
               <div class="form-group">
               <div class="input-group">
               <span class="input-group-btn">

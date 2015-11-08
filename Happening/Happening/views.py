@@ -1,10 +1,10 @@
-
+import datetime
 import json
 from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView
+from django.utils import timezone
 from Happening.models import Happening
 from Happening.forms import HappeningForm
-
 
 
 class HappeningView(TemplateView):
@@ -13,7 +13,7 @@ class HappeningView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(HappeningView, self).get_context_data(**kwargs)
 
-        happenings = Happening.objects.all()
+        happenings = Happening.objects.filter(end_date__gte=timezone.now())
 
         form = HappeningForm()
         context['form'] = form
