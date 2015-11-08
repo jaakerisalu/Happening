@@ -43,7 +43,11 @@ function initialize(lat, lon) {
         mapTypeControl: false,
         scaleControl: false,
         streetViewControl: false,
-        rotateControl: false
+        rotateControl: false,
+
+        styles: [{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#e4e4e4"}]},{"featureType":"landscape.man_made","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"color":"#e7e7e7"}]},{"featureType":"landscape.natural","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"saturation":"-25"},{"color":"#b6b6b6"}]},{"featureType":"poi.attraction","elementType":"geometry.fill","stylers":[{"hue":"#ff0000"},{"saturation":"-15"}]},{"featureType":"poi.attraction","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"poi.business","elementType":"geometry.fill","stylers":[{"saturation":"100"},{"color":"#89a392"}]},{"featureType":"poi.business","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"poi.government","elementType":"geometry.fill","stylers":[{"color":"#89a392"}]},{"featureType":"poi.government","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"poi.medical","elementType":"geometry.fill","stylers":[{"color":"#9fbaa9"}]},{"featureType":"poi.medical","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#9fbaa9"}]},{"featureType":"poi.park","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"poi.place_of_worship","elementType":"labels","stylers":[{"saturation":"-100"}]},{"featureType":"poi.place_of_worship","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"poi.school","elementType":"geometry.fill","stylers":[{"color":"#9fbaa9"}]},{"featureType":"poi.school","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"poi.sports_complex","elementType":"geometry.fill","stylers":[{"color":"#9fbaa9"}]},{"featureType":"poi.sports_complex","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"saturation":"-25"},{"hue":"#ff0000"}]},{"featureType":"transit.line","elementType":"geometry.fill","stylers":[{"saturation":"-25"},{"hue":"#ff0000"}]},{"featureType":"transit.line","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"water","elementType":"all","stylers":[{"hue":"#0078ff"},{"saturation":"-59"},{"lightness":"9"},{"gamma":1}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"water","elementType":"labels.icon","stylers":[{"hue":"#ff0000"},{"saturation":"55"}]}]
+
+
     };
 
     var mymap = new google.maps.Map(mapCanvas, mapOptions);
@@ -166,7 +170,7 @@ function showError(error) {
             console.log("The request to get user location timed out.")
             break;
         case error.UNKNOWN_ERROR:
-            xconsole.log("An unknown error occurred.")
+            console.log("An unknown error occurred.")
             break;
     }
 }

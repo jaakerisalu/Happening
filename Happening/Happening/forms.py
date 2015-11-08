@@ -5,7 +5,7 @@ from Happening.models import CATEGORIES
 from django import forms
 from model_utils import Choices
 
-CATEGORIES = Choices((0, 'category1', 'category1'), (1, 'category2', 'category2'))
+CATEGORIES = Choices((0, 'Pidu', 'Pidu'), (1, 'Muu', 'Muu'))
 
 
 class HappeningForm(forms.ModelForm):

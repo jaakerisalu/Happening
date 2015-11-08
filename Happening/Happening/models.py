@@ -6,7 +6,7 @@ from django.db import models
 from django.utils import timezone
 from model_utils import Choices
 
-CATEGORIES = Choices((0, 'category1', 'category1'), (1, 'category2', 'category2'))
+CATEGORIES = Choices((0, 'Pidu', 'Pidu'), (1, 'Muu', 'Muu'))
 
 
 class Happening(models.Model):
@@ -21,7 +21,7 @@ class Happening(models.Model):
 
     end_date = models.DateTimeField('End date', default=timezone.now() + datetime.timedelta(minutes=15))
 
-    category = models.IntegerField(choices=CATEGORIES, default=CATEGORIES.category1)
+    category = models.IntegerField(choices=CATEGORIES, default=CATEGORIES.Pidu)
 
     def serialize(self):
         format = ""
