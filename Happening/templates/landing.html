@@ -3,9 +3,12 @@
 {% block body_classes %} page--landing {% endblock %}
 
 {% block content %}
-{#    <input id="pac-input" class="controls" type="text" placeholder="Search Box">#}
-    <div id="map"></div>
 
+    <div class="search hidden">
+        <input id="searchTextField" class="form-control" type="text" size="50">
+    </div>
+
+    <div id="map"></div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -46,13 +49,15 @@
   </div>
 </div>
 
-
-    <button type="button" class="btn btn-success" id="add-happening" data-toggle="modal" data-target="#myModal">Add happening</button>
+<button id="add-happening" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" data-toggle="modal" data-target="#myModal">
+  <i class="material-icons">add</i>
+</button>
 {% endblock content %}
 
 {% block scripts %}
     <script>
         var happenings = {{ happenings|safe }};
         initHappening();
+
     </script>
 {% endblock %}

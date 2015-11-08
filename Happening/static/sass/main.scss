@@ -1,9 +1,16 @@
-@import "atoms/_addHappening";
+@import "atoms/addHappening";
+@import "atoms/search";
 @import 'organisms/map';
+@import 'organisms/navbar';
 @import 'pages/landing';
 @import 'pages/login';
 
 body, html {
     margin: 0;
     height: 100%;
+}
+
+@font-face {
+    font-family: Lobster-regular;
+    src: url("../fonts/LOBSTER-REGULAR.TTF");
 }

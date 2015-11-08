@@ -1,0 +1,42 @@
+.login .navbar {
+  display: none;
+}
+.login .login-form {
+  margin-top: 20px;
+}
+
+.navbar {
+  margin: 0;
+}
+
+header .container {
+  padding-left: 0;
+}
+
+.dark-background {
+  background-color: rgba(41, 41, 41, 0.7);
+}
+
+.navbar-inverse .navbar-nav {
+  font-weight: bold;
+  text-align: right;
+}
+
+.navbar-nav li {
+  display: inline-block;
+}
+
+.navbar-brand {
+  padding: 5px 5px;
+  margin-top: 5px;
+}
+
+.navbar-brand img {
+  max-height: 100%;
+}
+
+#logo-text {
+  font-family: Lobster-regular;
+  color: #fafafa;
+  font-size: 1.3em;
+}

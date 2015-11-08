@@ -1,13 +1,64 @@
 #add-happening {
   position: fixed;
-  bottom: 10px;
-  left: 2.5%;
-  width: 95%;
+  bottom: 5%;
+  right: 5%;
   display: none;
+  background-color: #e74c3c;
+}
+
+.search {
+  position: absolute;
+  z-index: 1;
+  margin-top: 55px;
+  transition: 1s;
 }
 
 #map {
   min-height: 100vh;
+}
+
+.login .navbar {
+  display: none;
+}
+
+.login .login-form {
+  margin-top: 20px;
+}
+
+.navbar {
+  margin: 0;
+}
+
+header .container {
+  padding-left: 0;
+}
+
+.dark-background {
+  background-color: rgba(41, 41, 41, 0.7);
+}
+
+.navbar-inverse .navbar-nav {
+  font-weight: bold;
+  text-align: right;
+}
+
+.navbar-nav li {
+  display: inline-block;
+}
+
+.navbar-brand {
+  padding: 5px 5px;
+  margin-top: 5px;
+}
+
+.navbar-brand img {
+  max-height: 100%;
+}
+
+#logo-text {
+  font-family: Lobster-regular;
+  color: #fafafa;
+  font-size: 1.3em;
 }
 
 .page--landing .container-fluid {
@@ -43,4 +94,9 @@
 body, html {
   margin: 0;
   height: 100%;
+}
+
+@font-face {
+  font-family: Lobster-regular;
+  src: url("../fonts/LOBSTER-REGULAR.TTF");
 }
