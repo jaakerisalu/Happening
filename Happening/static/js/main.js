@@ -162,15 +162,20 @@ function showError(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
             console.log("User denied the request for Geolocation.")
+            alert("Please turn on your GPS and allow our site to use it, otherwise Happening won't work correctly.")
             break;
         case error.POSITION_UNAVAILABLE:
             console.log("Location information is unavailable.")
+            alert("Sorry, we were unable to fetch your location, please try refreshing the page.")
             break;
         case error.TIMEOUT:
             console.log("The request to get user location timed out.")
+            alert("Sorry, we couldn't get your location, please try refreshing the page.")
             break;
         case error.UNKNOWN_ERROR:
+
             console.log("An unknown error occurred.")
+            alert("Sorry, we encountered some kind of error, please try refreshing the page.")
             break;
     }
 }
