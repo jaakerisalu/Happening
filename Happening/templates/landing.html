@@ -22,7 +22,7 @@
         <form action="/create/" method="post" enctype="multipart/form-data"/>{% csrf_token %}
           <div class="modal-body">
               <div class="form-group">
-              <input type="text" class="form-control" placeholder="Title" name="name" id="happening_name">
+              <input type="text" autocomplete="off" class="form-control" placeholder="Title" name="name" id="happening_name">
               <input type="hidden" class="form-control" name="lat" id="lat-field">
               <input type="hidden" class="form-control" name="lng" id="lng-field"></div>
 

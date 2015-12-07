@@ -1,5 +1,6 @@
 
 var currentLat, currentLon;
+var happeningList = [], mcList = [];
 
 /*
  * MAPS
@@ -38,21 +39,37 @@ function initialize(lat, lon) {
         center: new google.maps.LatLng(lat, lon),
         zoom: 12,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-
         zoomControl: false,
         mapTypeControl: false,
         scaleControl: false,
         streetViewControl: false,
         rotateControl: false,
-
         styles: [{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#e4e4e4"}]},{"featureType":"landscape.man_made","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"color":"#e7e7e7"}]},{"featureType":"landscape.natural","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"saturation":"-25"},{"color":"#b6b6b6"}]},{"featureType":"poi.attraction","elementType":"geometry.fill","stylers":[{"hue":"#ff0000"},{"saturation":"-15"}]},{"featureType":"poi.attraction","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"poi.business","elementType":"geometry.fill","stylers":[{"saturation":"100"},{"color":"#89a392"}]},{"featureType":"poi.business","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"poi.government","elementType":"geometry.fill","stylers":[{"color":"#89a392"}]},{"featureType":"poi.government","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"poi.medical","elementType":"geometry.fill","stylers":[{"color":"#9fbaa9"}]},{"featureType":"poi.medical","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#9fbaa9"}]},{"featureType":"poi.park","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"poi.place_of_worship","elementType":"labels","stylers":[{"saturation":"-100"}]},{"featureType":"poi.place_of_worship","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"poi.school","elementType":"geometry.fill","stylers":[{"color":"#9fbaa9"}]},{"featureType":"poi.school","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"poi.sports_complex","elementType":"geometry.fill","stylers":[{"color":"#9fbaa9"}]},{"featureType":"poi.sports_complex","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"saturation":"-25"},{"hue":"#ff0000"}]},{"featureType":"transit.line","elementType":"geometry.fill","stylers":[{"saturation":"-25"},{"hue":"#ff0000"}]},{"featureType":"transit.line","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"water","elementType":"all","stylers":[{"hue":"#0078ff"},{"saturation":"-59"},{"lightness":"9"},{"gamma":1}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"saturation":"-100"}]},{"featureType":"water","elementType":"labels.icon","stylers":[{"hue":"#ff0000"},{"saturation":"55"}]}]
-
-
+    };
+    var mcOptions = {styles: [{
+        height: 40,
+        url: "/static/images/Pin.png",
+        width: 40,
+        textColor: "white"
+      },
+      {
+        height: 40,
+        url: "/static/images/Pin.png",
+        width: 40,
+        textColor: "white"
+      },
+      {
+        height: 40,
+        url: "/static/images/Pin.png",
+        width: 40,
+        textColor: "white"
+      }]
     };
 
     var mymap = new google.maps.Map(mapCanvas, mapOptions);
 
     addMarkers(mymap);
+    var mc = new MarkerClusterer(mymap, mcList, mcOptions);
 
     addMyLocation(mymap, lat, lon);
 
@@ -82,7 +99,7 @@ function initialize(lat, lon) {
 
 
 function addMarkers(mymap) {
-    var happeningList = [];
+    happeningList = [], mcList = [];
     happenings.forEach(function(happening) {
         happeningList.push({
             lat: Number(happening.lat),
@@ -96,7 +113,7 @@ function addMarkers(mymap) {
     var infoWindow = new google.maps.InfoWindow();
 
     var markerIcon = {
-        url: 'static/images/Pin.svg',
+        url: 'static/images/Pin.png',
         scaledSize: new google.maps.Size(40, 40),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(20, 40)
@@ -111,6 +128,8 @@ function addMarkers(mymap) {
             animation: google.maps.Animation.DROP,
             icon: markerIcon
         });
+
+        mcList.push(mymarker);
 
         google.maps.event.addListener(mymarker, 'click', (function(mymarker, i) {
             return function() {
@@ -131,7 +150,7 @@ function addMyLocation(mymap, lat, lon) {
     var myLoc;
 
     var myLocationIcon = {
-        url: 'static/images/Pin_myLocation.svg',
+        url: 'static/images/Pin_myLocation.png',
         scaledSize: new google.maps.Size(50, 50),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(25, 50)
